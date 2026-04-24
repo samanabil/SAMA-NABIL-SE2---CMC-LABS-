@@ -1,0 +1,323 @@
+C:\Users\sama> mkdir distributed-lab
+
+C:\Users\sama>cd distributed-lab
+
+C:\Users\sama\distributed-lab> notepad docker-compose.yml
+
+C:\Users\sama\distributed-lab>docker-compose up
+time="2026-04-23T00:13:51+02:00" level=warning msg="C:\\Users\\sama\\distributed-lab\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] up 22/22
+ ✔ Image quay.io/coreos/etcd:v3.5.0 Pulled                                                                         22.8s
+ ✔ Image redis                      Pulled                                                                         32.5s
+ ✔ Network distributed-lab_default  Created                                                                         0.1s
+ ✔ Container redis-node2            Created                                                                         0.5s
+ ✔ Container etcd                   Created                                                                         0.5s
+ ✔ Container redis-node1            Created                                                                         0.5s
+Attaching to etcd, redis-node1, redis-node2
+etcd  | {"level":"info","ts":"2026-04-22T22:14:26.142Z","caller":"etcdmain/etcd.go:72","msg":"Running: ","args":["/usr/local/bin/etcd","--name","etcd","--data-dir","/etcd-data","--advertise-client-urls","http://0.0.0.0:2379","--listen-client-urls","http://0.0.0.0:2379"]}
+etcd  | {"level":"info","ts":"2026-04-22T22:14:26.143Z","caller":"embed/etcd.go:131","msg":"configuring peer listeners","listen-peer-urls":["http://localhost:2380"]}
+etcd  | {"level":"info","ts":"2026-04-22T22:14:26.145Z","caller":"embed/etcd.go:139","msg":"configuring client listeners","listen-client-urls":["http://0.0.0.0:2379"]}
+etcd  | {"level":"info","ts":"2026-04-22T22:14:26.145Z","caller":"embed/etcd.go:307","msg":"starting an etcd server","etcd-version":"3.5.0","git-sha":"946a5a6f2","go-version":"go1.16.3","go-os":"linux","go-arch":"amd64","max-cpu-set":8,"max-cpu-available":8,"member-initialized":false,"name":"etcd","data-dir":"/etcd-data","wal-dir":"","wal-dir-dedicated":"","member-dir":"/etcd-data/member","force-new-cluster":false,"heartbeat-interval":"100ms","election-timeout":"1s","initial-election-tick-advance":true,"snapshot-count":100000,"snapshot-catchup-entries":5000,"initial-advertise-peer-urls":["http://localhost:2380"],"listen-peer-urls":["http://localhost:2380"],"advertise-client-urls":["http://0.0.0.0:2379"],"listen-client-urls":["http://0.0.0.0:2379"],"listen-metrics-urls":[],"cors":["*"],"host-whitelist":["*"],"initial-cluster":"etcd=http://localhost:2380","initial-cluster-state":"new","initial-cluster-token":"etcd-cluster","quota-size-bytes":2147483648,"pre-vote":true,"initial-corrupt-check":false,"corrupt-check-time-interval":"0s","auto-compaction-mode":"periodic","auto-compaction-retention":"0s","auto-compaction-interval":"0s","discovery-url":"","discovery-proxy":"","downgrade-check-interval":"5s"}
+etcd  | {"level":"info","ts":"2026-04-22T22:14:26.163Z","caller":"etcdserver/backend.go:81","msg":"opened backend db","path":"/etcd-data/member/snap/db","took":"6.319531ms"}
+
+
+etcd  | {"level":"info","ts":"2026-04-22T22:14:26.186Z","caller":"etcdserver/raft.go:448","msg":"starting local member","local-member-id":"8e9e05c52164694d","cluster-id":"cdf818194e3a8c32"}
+redis-node1  | Starting Redis Server
+
+
+
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.186Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d switched to configuration voters=()"}
+redis-node1  | 1:C 22 Apr 2026 22:14:26.246 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.186Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d became follower at term 0"}
+redis-node2  | Starting Redis Server
+                                                                                                                        redis-node1  | 1:C 22 Apr 2026 22:14:26.246 * Redis version=8.6.2, bits=64, commit=00000000, modified=1, pid=1, just started
+
+redis-node2  | 1:C 22 Apr 2026 22:14:26.273 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+
+redis-node1  | 1:C 22 Apr 2026 22:14:26.246 * Configuration loaded
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.186Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d became follower at term 1"}
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.186Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d switched to configuration voters=(10276657743932975437)"}
+redis-node2  | 1:C 22 Apr 2026 22:14:26.273 * Redis version=8.6.2, bits=64, commit=00000000, modified=1, pid=1, just started
+redis-node2  | 1:C 22 Apr 2026 22:14:26.273 * Configuration loadedone, port=6379.
+etcd         | {"level":"warn","ts":"2026-04-22T22:14:26.192Z","caller":"auth/store.go:1220","msg":"simple token is not cryptographically signed"}
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.274 * monotonic clock: POSIX clock_gettime
+
+v View in Docker Desktop   o View Config   w Enable Watch   d Detach
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * <bf> Registering configuration options: [
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.205Z","caller":"etcdserver/quota.go:94","msg":"enabled backend quota with default value","quota-name":"v3-applier","quota-size-bytes":2147483648,"quota-size":"2.1 GB"}
+redis-node2  | 1:S 22 Apr 2026 22:14:26.275 * Running mode=standalone, port=6379.
+
+v View in Docker Desktop   o View Config   w Enable Watch   d Detach
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf> RedisBloom version 8.6.0 (Git=unknown)
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.207Z","caller":"etcdserver/server.go:843","msg":"starting etcd server","local-member-id":"8e9e05c52164694d","local-server-version":"3.5.0","cluster-version":"to_be_decided"}
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * <bf>      { bf-error-rate       :      0.01 }
+
+
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf> Registering configuration options: [
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * <bf>      { bf-initial-size     :       100 }
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.215Z","caller":"embed/etcd.go:276","msg":"now serving peer/client/metrics","local-member-id":"8e9e05c52164694d","initial-advertise-peer-urls":["http://localhost:2380"],"listen-peer-urls":["http://localhost:2380"],"advertise-client-urls":["http://0.0.0.0:2379"],"listen-client-urls":["http://0.0.0.0:2379"],"listen-metrics-urls":[]}
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf>      { bf-error-rate       :      0.01 }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * <bf>      { bf-expansion-factor :         2 }
+
+
+
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.215Z","caller":"embed/etcd.go:580","msg":"serving peer traffic","address":"127.0.0.1:2380"}
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf>  Watc{ bf-initial-size     :       100 }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * <bf>      { cf-bucket-size      :         2 }
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.214Z","caller":"etcdserver/server.go:728","msg":"started as single-node; fast-forwarding election ticks","local-member-id":"8e9e05c52164694d","forward-ticks":9,"forward-duration":"900ms","election-ticks":10,"election-timeout":"1s"}
+
+
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf>      { cf-bucket-size      :         2 }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * <bf>      { cf-initial-size     :      1024 }
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.215Z","caller":"embed/etcd.go:552","msg":"cmux::serve","address":"127.0.0.1:2380"}
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf>      { cf-initial-size     :      1024 }
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.217Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d switched to configuration voters=(10276657743932975437)"}
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * <bf>      { cf-expansion-factor :         1 }
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf>      { cf-max-iterations   :        20 }
+
+
+
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.218Z","caller":"membership/cluster.go:393","msg":"added member"redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf>      { cf-expansion-factor :         1 }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * <bf> ]
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf>      { cf-max-expansions   :        32 }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.252 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * <bf> ]
+redis-node1  | 1:M 22 Apr 2026 22:14:26.255 * <search> Redis version found by RedisSearch : 8.6.2 - oss
+redis-node2  | 1:S 22 Apr 2026 22:14:26.277 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> Redis version found by RedisSearch : 8.6.2 - oss
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> RediSearch version 8.6.0 (Git=7782b97)
+redis-node1  | 1:M 22 Apr 2026 22:14:26.255 * <search> Low level api version 1 initialized successfully
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> Low level api version 1 initialized successfully
+redis-node1  | 1:M 22 Apr 2026 22:14:26.255 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, oom policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD,
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix redis-node1  | 1:M 22 Apr 2026 22:14:26.255 * <search> Initialized thread pools!: return, cursor read size: 1000, cursor
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> Initialized thread pools!
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.255 * <search> Disabled workers threadpool of size 0
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> Disabled workers threadpool of size 0
+redis-node1  | 1:M 22 Apr 2026 22:14:26.255 * <search> Subscribe to config changes
+
+
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> Subscribe to config changes
+redis-node1  | 1:M 22 Apr 2026 22:14:26.255 * <search> Subscribe to cluster slot migration events
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> Subscribe to cluster slot migration events
+
+v View in Docker Desktop   o View Config   w Enable Watch   d Detach
+redis-node2  | 1:S 22 Apr 2026 22:14:26.282 * <search> Enabled role change notification
+redis-node2  | 1:S 22 Apr 2026 22:14:26.283 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+redis-node2  | 1:S 22 Apr 2026 22:14:26.283 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so
+redis-node1  | 1:M 22 Apr 2026 22:14:26.257 * <timeseries> RedisTimeSeries version 80600, git_sha=05fd355db748676861dc4c17d19c8c1ca74c0154
+redis-node1  | 1:M 22 Apr 2026 22:14:26.257 * <timeseries> Redis version found by RedisTimeSeries : 8.6.2 - oss76861dc4c
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries> Redis version found by RedisTimeSeries : 8.6.2 - oss
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.257 * <timeseries> Registering configuration options: [
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries> Registering configuration options: [
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries>      { ts-compaction-policy   :              }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.257 * <timeseries>      { ts-num-threads         :            3 }
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries>      { ts-num-threads         :            3 }
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries>      { ts-retention-policy    :            0 }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.257 * <timeseries>      { ts-duplicate-policy    :        block }
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.687Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d is starting a new election at term 1"}
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries>      { ts-duplicate-policy    :        block }
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries>  d De{ ts-chunk-size-bytes    :         4096 }
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.687Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d became pre-candidate at term 1"}
+redis-node1  | 1:M 22 Apr 2026 22:14:26.258 * <timeseries>      { ts-chunk-size-bytes    :         4096 }
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.687Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d received MsgPreVoteResp from 8e9e05c52164694d at term 1"}
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries>      { ts-encoding            :   compressed }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.258 * <timeseries>      { ts-encoding            :   compressed }
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.687Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d became candidate at term 2"}
+v View in Docker Desktop   o View Config   w Enable Watch   d Detach
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries>      { ts-ignore-max-time-diff:            0 }
+redis-node1  | 1:M 22 Apr 2026 22:14:26.258 * <timeseries>      { ts-ignore-max-time-diff:            0 }
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries>      { ts-ignore-max-val-diff :     0.000000 }
+
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.687Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"8e9e05c52164694d became leader at term 2"}
+redis-node1  | 1:M 22 Apr 2026 22:14:26.258 * <timeseries>      { ts-ignore-max-val-diff :     0.000000 }
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries> ]
+
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.258 * <timeseries> ]
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.688Z","caller":"etcdserver/server.go:2027","msg":"published local member to cluster through raft","local-member-id":"8e9e05c52164694d","local-member-attributes":"{Name:etcd ClientURLsredis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries> Detected redis osses","cluster-id":"cdf818194e3a8c32","publis
+redis-node1  | 1:M 22 Apr 2026 22:14:26.259 * <timeseries> Detected redis oss
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.688Z","caller":"etcdserver/server.go:2476","msg":"setting up initial cluster version using v2 API","cluster-version":"3.5"}
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries> Subscribe to ASM events
+redis-node1  | 1:M 22 Apr 2026 22:14:26.259 * <timeseries> Subscribe to ASM events
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.688Z","caller":"embed/serve.go:98","msg":"ready to serve client requests"}
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <timeseries> Enabled diskless replication
+redis-node1  | 1:M 22 Apr 2026 22:14:26.259 * <timeseries> Enabled diskless replication
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.688Z","caller":"etcdmain/main.go:47","msg":"notifying init daemon"}
+v View in Docker Desktop   o View Config   w Enable Watch   d Detach
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.688Z","caller":"etcdmain/main.go:53","msg":"successfully notified init daemon"}
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+redis-node1  | 1:M 22 Apr 2026 22:14:26.259 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.261 * <ReJSON> Created new data type 'ReJSON-RL'
+
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.689Z","caller":"membership/cluster.go:531","msg":"set initial cluster version","cluster-id":"cdf818194e3a8c32","local-member-id":"8e9e05c52164694d","cluster-version":"3.5"}
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.284 * <ReJSON> Created new data type 'ReJSON-RL'
+redis-node1  | 1:M 22 Apr 2026 22:14:26.264 * <ReJSON> version: 80600 git sha: unknown branch: unknown
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.689Z","caller":"embed/serve.go:140","msg":"serving client traffic insecurely; this is strongly discouraged!","address":"[::]:2379"}
+
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.689Z","caller":"api/capability.go:75","msg":"enabled capabilities for version","cluster-version":"3.5"}
+redis-node1  | 1:M 22 Apr 2026 22:14:26.264 * <ReJSON> Exported RedisJSON_V1 API
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> version: 80600 git sha: unknown branch: unknown
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.264 * <ReJSON> Exported RedisJSON_V2 API
+
+
+etcd         | {"level":"info","ts":"2026-04-22T22:14:26.689Z","caller":"etcdserver/server.go:2500","msg":"cluster version is updated","cluster-version":"3.5"}
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> Exported RedisJSON_V1 API
+redis-node1  | 1:M 22 Apr 2026 22:14:26.264 * <ReJSON> Exported RedisJSON_V3 API
+redis-node1  | 1:M 22 Apr 2026 22:14:26.264 * <ReJSON> Exported RedisJSON_V4 API
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> Exported RedisJSON_V2 API
+redis-node1  | 1:M 22 Apr 2026 22:14:26.264 * <ReJSON> Exported RedisJSON_V5 API
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> Exported RedisJSON_V3 API
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> Exported RedisJSON_V4 API
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> Exported RedisJSON_V5 APIion
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> Exported RedisJSON_V6 API cache, thread safe: true.
+
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.264 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> Enabled diskless replication
+redis-node1  | 1:M 22 Apr 2026 22:14:26.264 * <search> Acquired RedisJSON_V6 API
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * <ReJSON> Initialized shared string cache, thread safe: true.
+redis-node1  | 1:M 22 Apr 2026 22:14:26.266 * Server initialized
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.266 * Ready to accept connections tcp
+redis-node1  | 1:M 22 Apr 2026 22:14:26.266 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 * Server initialized
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.297 * Replica 172.18.0.2:6379 asks for synchronization
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.297 * Full resync requested by replica 172.18.0.2:6379
+redis-node2  | 1:S 22 Apr 2026 22:14:26.285 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+redis-node1  | 1:M 22 Apr 2026 22:14:26.297 * Replication backlog created, my new replication IDs are '17d6da5ec2e9459030f46cb40cf86e7e1ba043f4' and '0000000000000000000000000000000000000000'
+redis-node1  | 1:M 22 Apr 2026 22:14:26.297 * Replica 172.18.0.2:6379 is capable of rdb channel synchronization, and partial sync isn't possible. Full sync will continue with dedicated rdb channel.
+redis-node1  | 1:M 22 Apr 2026 22:14:26.299 * Replica 172.18.0.2:6379 asks for synchronization
+redis-node2  | 1:S 22 Apr 2026 22:14:26.296 * Non blocking connect for SYNC fired the event.
+
+
+redis-node1  | 1:M 22 Apr 2026 22:14:26.299 * Full resync requested by replica 172.18.0.2:6379 (rdb-channel)
+redis-node2  | 1:S 22 Apr 2026 22:14:26.297 * Master replied to PING, replication can continue...
+redis-node1  | 1:M 22 Apr 2026 22:14:26.299 * Delay next BGSAVE for diskless SYNC
+
+redis-node2  | 1:S 22 Apr 2026 22:14:26.297 * Partial resynchronization not possible (no cached master)
+redis-node2  | 1:S 22 Apr 2026 22:14:26.297 * PSYNC is not possible, initialize RDB channel.
+
+
+redis-node1  | 1:M 22 Apr 2026 22:14:31.299 * Starting BGSAVE for SYNC with target: replicas sockets (rdb-channel)
+redis-node2  | 1:S 22 Apr 2026 22:14:31.299 * Starting to receive RDB and replication stream in parallel.
+redis-node1  | 1:M 22 Apr 2026 22:14:31.299 * Starting to deliver RDB and replication stream to replica: 172.18.0.2:6379
+
+redis-node2  | 1:S 22 Apr 2026 22:14:31.300 * MASTER <-> REPLICA sync: receiving streamed RDB from master with EOF to disk
+
+redis-node2  | 1:S 22 Apr 2026 22:14:31.300 * MASTER <-> REPLICA sync: Loading DB in memory
+redis-node1  | 32:C 22 Apr 2026 22:14:31.300 * BGSAVE done, 0 keys saved, 0 keys skipped, 218 bytes written.
+
+
+redis-node1  | 32:C 22 Apr 2026 22:14:31.303 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * <search> Changing workers threadpool size from 0 to 4
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * <search> Enabled workers threadpool of size 4
+
+redis-node1  | 1:M 22 Apr 2026 22:14:31.307 * Connection with replica (rdbchannel) 172.18.0.2:6379 lost.
+redis-node1  | 1:M 22 Apr 2026 22:14:31.307 * Synchronization with replica 172.18.0.2:6379 succeeded
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * Loading RDB produced by version 8.6.2
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * RDB age 0 seconds
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * RDB memory usage when created 1.36 Mb
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * Done loading RDB, keys loaded: 0, keys expired: 0.
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * <search> Changing workers threadpool size from 4 to 0
+
+redis-node1  | 1:M 22 Apr 2026 22:14:31.401 * Background RDB transfer terminated with success
+
+
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * <search> Scheduling config_reduce_threads_job to remove all 4 threads when empty
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * <search> Disabled workers threadpool of size 4
+redis-node2  | 1:S 22 Apr 2026 22:14:31.306 * <search> Loading event ended successfully
+redis-node2  | 1:S 22 Apr 2026 22:14:31.307 * MASTER <-> REPLICA sync: Finished with success
+redis-node2  | 1:S 22 Apr 2026 22:14:31.307 * MASTER <-> REPLICA sync: Starting to stream replication buffer into the db (0 bytes).
+redis-node2  | 1:S 22 Apr 2026 22:14:31.307 * MASTER <-> REPLICA sync: Successfully streamed replication buffer into the db (0 bytes in total)
+
+C:\Users\sama\distributed-lab> docker exec -it redis-node1 redis-cli
+127.0.0.1:6379> set name sama
+OK
+127.0.0.1:6379> set age 20
+OK
+
+
+
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\sama> docker exec -it etcd etcdctl put foo bar
+OK
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug etcd
+    Learn more at https://docs.docker.com/go/debug-cli/
+
+C:\Users\sama>  docker exec -it etcd etcdctl get foo
+foo
+bar
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug etcd
+    Learn more at https://docs.docker.com/go/debug-cli/
+
+C:\Users\sama> docker exec -it etcd etcdctl endpoint status
+127.0.0.1:2379, 8e9e05c52164694d, 3.5.0, 20 kB, true, false, 2, 5, 5,
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug etcd
+    Learn more at https://docs.docker.com/go/debug-cli/
+
+C:\Users\sama> docker stop etcd
+etcd
+
+C:\Users\sama> docker start etcd
+etcd
+
+C:\Users\sama>docker exec -it etcd etcdctl endpoint status
+127.0.0.1:2379, 8e9e05c52164694d, 3.5.0, 20 kB, true, false, 3, 7, 7,

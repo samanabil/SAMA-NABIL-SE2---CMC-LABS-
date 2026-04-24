@@ -1,0 +1,10 @@
+Redis
+- Data written to redis-node1 was successfully replicated to redis-node2.
+- Full synchronization happened automatically between nodes.
+- System remained consistent after restart.
+
+etcd (Raft)
+- Key-value pair was successfully stored and retrieved.
+- One node acted as leader during operations.
+- After stopping and restarting etcd, cluster recovered automatically.
+- Leader election and failover worked correctly.

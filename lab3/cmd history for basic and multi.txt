@@ -1,0 +1,235 @@
+C:\Users\sama> cd C:\Users\sama\lab3
+
+C:\Users\sama\lab3>flask==3.0.0
+'flask' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\sama\lab3>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 9654-19A3
+
+ Directory of C:\Users\sama\lab3
+
+04/23/2026  02:17 AM    <DIR>          .
+04/23/2026  01:31 AM    <DIR>          ..
+04/23/2026  02:17 AM                14 requirements..txt
+               1 File(s)             14 bytes
+               2 Dir(s)  55,832,363,008 bytes free
+
+C:\Users\sama\lab3> docker build -f Dockerfile.basic -t lab3-basic .
+[+] Building 0.2s (1/1) FINISHED                                                                   docker:desktop-linux
+ => [internal] load build definition from Dockerfile.basic                                                         0.1s
+ => => transferring dockerfile: 2B                                                                                 0.0s
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile.basic: no such file or directory
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"
+
+C:\Users\sama\lab3>  docker history lab3-basic
+Error response from daemon: No such image: lab3-basic:latest
+
+C:\Users\sama\lab3> notepad Dockerfile.basic
+
+C:\Users\sama\lab3> dir
+ Volume in drive C has no label.
+ Volume Serial Number is 9654-19A3
+
+ Directory of C:\Users\sama\lab3
+
+04/23/2026  02:20 AM    <DIR>          .
+04/23/2026  01:31 AM    <DIR>          ..
+04/23/2026  02:18 AM                 0 app.py
+04/23/2026  02:20 AM               165 Dockerfile.basic
+04/23/2026  02:17 AM                14 requirements..txt
+               3 File(s)            179 bytes
+               2 Dir(s)  55,829,934,080 bytes free
+
+C:\Users\sama\lab3> docker build -f Dockerfile.basic -t lab3-basic .
+[+] Building 2.5s (8/10)                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile.basic                                                         0.0s
+ => => transferring dockerfile: 210B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                2.2s
+ => [auth] library/python:pull token for registry-1.docker.io                                                      0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => CANCELED [1/5] FROM docker.io/library/python:3.12-slim@sha256:520153e2deb359602c9cffd84e491e3431d76e7bf95a325  0.0s
+ => => resolve docker.io/library/python:3.12-slim@sha256:520153e2deb359602c9cffd84e491e3431d76e7bf95a3255c9ce9433  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 27B                                                                                   0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                      0.0s
+ => ERROR [3/5] COPY requirements.txt .                                                                            0.0s
+------
+ > [3/5] COPY requirements.txt .:
+------
+Dockerfile.basic:5
+--------------------
+   3 |     WORKDIR /app
+   4 |
+   5 | >>> COPY requirements.txt .
+   6 |
+   7 |     RUN pip install -r requirements.txt
+--------------------
+ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref uhnkw7ieuyp6jvggftfbhpqmn::uhbhje10b1w9dkx13uziq5zp6: "/requirements.txt": not found
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"
+
+C:\Users\sama\lab3> docker history lab3-basic
+Error response from daemon: No such image: lab3-basic:latest
+
+C:\Users\sama\lab3>ren requirements..txt requirements.txt
+
+C:\Users\sama\lab3>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 9654-19A3
+
+ Directory of C:\Users\sama\lab3
+
+04/23/2026  02:21 AM    <DIR>          .
+04/23/2026  01:31 AM    <DIR>          ..
+04/23/2026  02:18 AM                 0 app.py
+04/23/2026  02:20 AM               165 Dockerfile.basic
+04/23/2026  02:17 AM                14 requirements.txt
+               3 File(s)            179 bytes
+               2 Dir(s)  55,828,533,248 bytes free
+
+C:\Users\sama\lab3>docker build -f Dockerfile.basic -t lab3-basic .
+[+] Building 12.7s (10/10) FINISHED                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile.basic                                                                    0.0s
+ => => transferring dockerfile: 210B                                                                                          0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                           0.6s
+ => [internal] load .dockerignore                                                                                             0.0s
+ => => transferring context: 2B                                                                                               0.0s
+ => [internal] load build context                                                                                             0.0s
+ => => transferring context: 84B                                                                                              0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:520153e2deb359602c9cffd84e491e3431d76e7bf95a3255c9ce9433b76ab99a     5.2s
+ => => resolve docker.io/library/python:3.12-slim@sha256:520153e2deb359602c9cffd84e491e3431d76e7bf95a3255c9ce9433b76ab99a     0.0s
+ => => sha256:3fc9d9ab5045181fbd49d1d30a2dbad144172d4c3c141f70117ddb0b918d8357 248B / 248B                                    0.5s
+ => => sha256:4d873bcef452ab1c054b9a0f25ace04a446c558a7b925aed2fc5bc21533e0f65 12.10MB / 12.10MB                              4.5s
+ => => sha256:cb8c0a9140ac107575972113eb5fd2e6c3cdddc592371a5ac31c4623dcb13d5d 1.29MB / 1.29MB                                1.2s
+ => => extracting sha256:cb8c0a9140ac107575972113eb5fd2e6c3cdddc592371a5ac31c4623dcb13d5d                                     0.2s
+ => => extracting sha256:4d873bcef452ab1c054b9a0f25ace04a446c558a7b925aed2fc5bc21533e0f65                                     0.6s
+ => => extracting sha256:3fc9d9ab5045181fbd49d1d30a2dbad144172d4c3c141f70117ddb0b918d8357                                     0.0s
+ => [2/5] WORKDIR /app                                                                                                        0.1s
+ => [3/5] COPY requirements.txt .                                                                                             0.0s
+ => [4/5] RUN pip install -r requirements.txt                                                                                 5.3s
+ => [5/5] COPY app.py .                                                                                                       0.0s
+ => exporting to image                                                                                                        1.2s
+ => => exporting layers                                                                                                       0.7s
+ => => exporting manifest sha256:865391d791e941c0467adc544048ac8e7173e26850b84e3012a1cd720a3a13c9                             0.0s
+ => => exporting config sha256:6c0848d1b572a0491b7d760c3071ed18ffda2727252f4ca1a9e59d06cb5e8eab                               0.0s
+ => => exporting attestation manifest sha256:bb257cba2ea60e90e614f8450759b484de9ff363924ffaf910d1aee806899a29                 0.0s
+ => => exporting manifest list sha256:725bc71ad7b9be1b4fab2faff047a1df1e5514a6c775dadd3da08ae763177800                        0.0s
+ => => naming to docker.io/library/lab3-basic:latest                                                                          0.0s
+ => => unpacking to docker.io/library/lab3-basic:latest                                                                       0.4s
+
+C:\Users\sama\lab3>docker history lab3-basic
+IMAGE          CREATED          CREATED BY                                      SIZE      COMMENT
+725bc71ad7b9   23 seconds ago   CMD ["python" "app.py"]                         0B        buildkit.dockerfile.v0
+<missing>      23 seconds ago   EXPOSE [5000/tcp]                               0B        buildkit.dockerfile.v0
+<missing>      23 seconds ago   COPY app.py . # buildkit                        8.19kB    buildkit.dockerfile.v0
+<missing>      23 seconds ago   RUN /bin/sh -c pip install -r requirements.t…   16.5MB    buildkit.dockerfile.v0
+<missing>      28 seconds ago   COPY requirements.txt . # buildkit              12.3kB    buildkit.dockerfile.v0
+<missing>      28 seconds ago   WORKDIR /app                                    8.19kB    buildkit.dockerfile.v0
+<missing>      22 hours ago     CMD ["python3"]                                 0B        buildkit.dockerfile.v0
+<missing>      22 hours ago     RUN /bin/sh -c set -eux;  for src in idle3 p…   16.4kB    buildkit.dockerfile.v0
+<missing>      22 hours ago     RUN /bin/sh -c set -eux;   savedAptMark="$(a…   41.3MB    buildkit.dockerfile.v0
+<missing>      22 hours ago     ENV PYTHON_SHA256=c08bc65a81971c1dd578318282…   0B        buildkit.dockerfile.v0
+<missing>      22 hours ago     ENV PYTHON_VERSION=3.12.13                      0B        buildkit.dockerfile.v0
+<missing>      22 hours ago     ENV GPG_KEY=7169605F62C751356D054A26A821E680…   0B        buildkit.dockerfile.v0
+<missing>      22 hours ago     RUN /bin/sh -c set -eux;  apt-get update;  a…   4.94MB    buildkit.dockerfile.v0
+<missing>      22 hours ago     ENV LANG=C.UTF-8                                0B        buildkit.dockerfile.v0
+<missing>      22 hours ago     ENV PATH=/usr/local/bin:/usr/local/sbin:/usr…   0B        buildkit.dockerfile.v0
+<missing>      2 days ago       # debian.sh --arch 'amd64' out/ 'trixie' '@1…   87.4MB    debuerreotype 0.17
+
+C:\Users\sama\lab3>docker image ls
+                                                                                                               i Info →   U  In Use
+IMAGE                        ID             DISK USAGE   CONTENT SIZE   EXTRA
+lab3-basic:latest            725bc71ad7b9        199MB           49MB
+quay.io/coreos/etcd:v3.5.0   28759af54acd        156MB         40.6MB    U
+redis:latest                 d372cf7cd5ab        204MB         55.3MB    U
+ubuntu:22.04                 962f6cadeae0        119MB         31.7MB    U
+ubuntu:latest                c4a8d5503dfb        119MB         31.7MB    U
+
+C:\Users\sama\lab3>docker build -f Dockerfile.multistage -t lab3-multi .
+[+] Building 0.1s (1/1) FINISHED                                                                              docker:desktop-linux
+ => [internal] load build definition from Dockerfile.multistage                                                               0.0s
+ => => transferring dockerfile: 2B                                                                                            0.0s
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile.multistage: no such file or directory
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"
+
+C:\Users\sama\lab3>notepad Dockerfile.multistage
+
+C:\Users\sama\lab3>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 9654-19A3
+
+ Directory of C:\Users\sama\lab3
+
+04/23/2026  02:25 AM    <DIR>          .
+04/23/2026  01:31 AM    <DIR>          ..
+04/23/2026  02:18 AM                 0 app.py
+04/23/2026  02:20 AM               165 Dockerfile.basic
+04/23/2026  02:25 AM               280 Dockerfile.multistage
+04/23/2026  02:17 AM                14 requirements.txt
+               4 File(s)            459 bytes
+               2 Dir(s)  55,828,074,496 bytes free
+
+C:\Users\sama\lab3>docker build -f Dockerfile.multistage -t lab3-multi .
+[+] Building 7.5s (13/13) FINISHED                                                                                                                   docker:desktop-linux
+ => [internal] load build definition from Dockerfile.multistage                                                                                                      0.0s
+ => => transferring dockerfile: 330B                                                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                                                                  1.0s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                        0.0s
+ => [internal] load .dockerignore                                                                                                                                    0.0s
+ => => transferring context: 2B                                                                                                                                      0.0s
+ => [internal] load build context                                                                                                                                    0.0s
+ => => transferring context: 60B                                                                                                                                     0.0s
+ => CACHED [builder 1/4] FROM docker.io/library/python:3.12-slim@sha256:520153e2deb359602c9cffd84e491e3431d76e7bf95a3255c9ce9433b76ab99a                             0.0s
+ => => resolve docker.io/library/python:3.12-slim@sha256:520153e2deb359602c9cffd84e491e3431d76e7bf95a3255c9ce9433b76ab99a                                            0.0s
+ => CACHED [stage-1 2/4] WORKDIR /app                                                                                                                                0.0s
+ => [builder 2/4] WORKDIR /build                                                                                                                                     0.0s
+ => [builder 3/4] COPY requirements.txt .                                                                                                                            0.0s
+ => [builder 4/4] RUN pip install --prefix=/install -r requirements.txt                                                                                              5.2s
+ => [stage-1 3/4] COPY --from=builder /install /usr/local                                                                                                            0.1s
+ => [stage-1 4/4] COPY app.py .                                                                                                                                      0.1s
+ => exporting to image                                                                                                                                               0.5s
+ => => exporting layers                                                                                                                                              0.3s
+ => => exporting manifest sha256:48fa8ce81d85d60c58b770cc718ab0eb80086cb68b9d6a1a293f278c8b1a1ffa                                                                    0.0s
+ => => exporting config sha256:1476dd372cb5cda0234ef0de0b09a6ac17c4b24667f2ab0bd7d3d3d85fd4df86                                                                      0.0s
+ => => exporting attestation manifest sha256:caeb26f5c78aed35ef39a5bf730817371be844127e79d20403cff73ca520a069                                                        0.0s
+ => => exporting manifest list sha256:255417445d898060b940f4882cf32ef2cae2e22b30d1a7167ab80fb6f9e389ea                                                               0.0s
+ => => naming to docker.io/library/lab3-multi:latest                                                                                                                 0.0s
+ => => unpacking to docker.io/library/lab3-multi:latest                                                                                                              0.1s
+
+C:\Users\sama\lab3>docker history lab3-multi
+IMAGE          CREATED         CREATED BY                                      SIZE      COMMENT
+255417445d89   2 seconds ago   CMD ["python" "app.py"]                         0B        buildkit.dockerfile.v0
+<missing>      2 seconds ago   EXPOSE [5000/tcp]                               0B        buildkit.dockerfile.v0
+<missing>      2 seconds ago   COPY app.py . # buildkit                        8.19kB    buildkit.dockerfile.v0
+<missing>      3 seconds ago   COPY /install /usr/local # buildkit             5.51MB    buildkit.dockerfile.v0
+<missing>      4 minutes ago   WORKDIR /app                                    8.19kB    buildkit.dockerfile.v0
+<missing>      22 hours ago    CMD ["python3"]                                 0B        buildkit.dockerfile.v0
+<missing>      22 hours ago    RUN /bin/sh -c set -eux;  for src in idle3 p…   16.4kB    buildkit.dockerfile.v0
+<missing>      22 hours ago    RUN /bin/sh -c set -eux;   savedAptMark="$(a…   41.3MB    buildkit.dockerfile.v0
+<missing>      22 hours ago    ENV PYTHON_SHA256=c08bc65a81971c1dd578318282…   0B        buildkit.dockerfile.v0
+<missing>      22 hours ago    ENV PYTHON_VERSION=3.12.13                      0B        buildkit.dockerfile.v0
+<missing>      22 hours ago    ENV GPG_KEY=7169605F62C751356D054A26A821E680…   0B        buildkit.dockerfile.v0
+<missing>      22 hours ago    RUN /bin/sh -c set -eux;  apt-get update;  a…   4.94MB    buildkit.dockerfile.v0
+<missing>      22 hours ago    ENV LANG=C.UTF-8                                0B        buildkit.dockerfile.v0
+<missing>      22 hours ago    ENV PATH=/usr/local/bin:/usr/local/sbin:/usr…   0B        buildkit.dockerfile.v0
+<missing>      2 days ago      # debian.sh --arch 'amd64' out/ 'trixie' '@1…   87.4MB    debuerreotype 0.17
+
+C:\Users\sama\lab3>docker image ls
+                                                                                                                                                      i Info →   U  In Use
+IMAGE                        ID             DISK USAGE   CONTENT SIZE   EXTRA
+lab3-basic:latest            725bc71ad7b9        199MB           49MB
+lab3-multi:latest            255417445d89        184MB         44.7MB
+quay.io/coreos/etcd:v3.5.0   28759af54acd        156MB         40.6MB    U
+redis:latest                 d372cf7cd5ab        204MB         55.3MB    U
+ubuntu:22.04                 962f6cadeae0        119MB         31.7MB    U
+ubuntu:latest                c4a8d5503dfb        119MB         31.7MB    U
+
+C:\Users\sama\lab3>
